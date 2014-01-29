@@ -4,6 +4,8 @@ Profileapp::Application.routes.draw do
     resources :sections
   end
 
+  root to: 'sessions#new'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   match '/signup', to: 'users#new', via: 'get'

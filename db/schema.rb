@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127041017) do
+ActiveRecord::Schema.define(version: 20140129074447) do
 
   create_table "sections", force: true do |t|
     t.binary   "content"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140127041017) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
