@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
-  has_many :sections
+  has_many :sections, dependent: :destroy
   has_secure_password
 
   def User.new_remember_token

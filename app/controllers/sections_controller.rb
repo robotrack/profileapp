@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy]
 
   # GET /sections
   # GET /sections.json
@@ -24,11 +25,11 @@ class SectionsController < ApplicationController
   # POST /sections
   # POST /sections.json
   def create
-    @section = Section.new(section_params)
+    @section = current_user.sections.build(section_params)
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Section was successfully created.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }
@@ -69,6 +70,6 @@ class SectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def section_params
-      params.require(:section).permit(:content, :title, :user_id)
+      params.require(:section).permit(:content, :title)
     end
 end

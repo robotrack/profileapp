@@ -1,9 +1,6 @@
 Profileapp::Application.routes.draw do
+  resources :users 
   resources :sections
-  resources :users do
-    resources :sections
-  end
-
   root to: 'sessions#new'
 
   resources :sessions, only: [:new, :create, :destroy]
