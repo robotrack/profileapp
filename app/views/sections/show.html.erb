@@ -1,19 +1,10 @@
 <p id="notice"><%= notice %></p>
+<h3><%= @section.title %></h3>
 
-<p>
-  <strong>Content:</strong>
-  <%= @section.content %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @section.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @section.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', sections_path %>
+<div class="row">
+  <div class="six columns centered">
+    <div class="panel">
+      <%= @section.content.html_safe %>
+    </div>
+  </div>
+</div>

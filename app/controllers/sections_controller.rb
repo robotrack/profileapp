@@ -5,7 +5,7 @@ class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
   def index
-    @sections = Section.all
+    @sections = current_user.sections 
   end
 
   # GET /sections/1
@@ -29,7 +29,7 @@ class SectionsController < ApplicationController
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to user_path(current_user), notice: 'Section was successfully created.' }
+        format.html { redirect_to sections_path, notice: 'Section was successfully created.' }
         format.json { render action: 'show', status: :created, location: @section }
       else
         format.html { render action: 'new' }

@@ -23,24 +23,30 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
+        <% if signed_in? %>
           <% current_user.sections.each do |section| %>
             <li>
-              <%= link_to section.title, "#" %>
+              <%= link_to section.title, section_path(section.id) %>
             </li>
           <% end %>
+        <% end %>
         </ul>
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <li>
           <% if signed_in? %>
-            <%= link_to "Sign out", signout_path, method: "delete" %>
+            <li>
+             <%= link_to "Sign out", signout_path, method: "delete" %>
+            </li>
+            <li>
+              <%= link_to "Settings", sections_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign up", signup_path %>
+            </li>
           <% end %>
-          </li>
-          <li>
-            <%= link_to "Settings", sections_path %>
-          </li>
-        </ul>
+          </ul>
       </section>
     </nav>
 
