@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require tinymce/tinymce.min
+//= require tester
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
