@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Kanave app" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,49 +12,63 @@
   </head>
 
   <body>
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">Kanave</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-    </ul>
+  <div class="container">
 
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
-        <% if signed_in? %>
-          <% current_user.sections.each do |section| %>
-            <li>
-              <%= link_to section.title, section_path(section.id) %>
-            </li>
-          <% end %>
-        <% end %>
-        </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <% if signed_in? %>
-            <li>
-             <%= link_to "Sign out", signout_path, method: "delete" %>
-            </li>
-            <li>
-              <%= link_to "Settings", sections_path %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "Sign up", signup_path %>
-            </li>
-          <% end %>
-          </ul>
-      </section>
-    </nav>
-
-    <div class="row">
-      <div class="six columns centered">
-        <%= yield %>
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Kanave", sections_path, class: "navbar-brand" %>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <% if signed_in? %>
+                <li>
+                 <%= link_to "Sign out", signout_path, method: "delete" %>
+                </li>
+                <li>
+                  <%= link_to "Settings", sections_path %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to "Sign up", signup_path %>
+                </li>
+                <li>
+                  <%= link_to "Sign in", signin_path %>
+                </li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if signed_in? %>
+                <% current_user.sections.each do |section| %>
+                  <li>
+                    <%= link_to section.title, section_path(section.id) %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
       </div>
-    </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+          <%= yield %>   
+      </div>
+
+    </div> <!-- /container -->
+
+
+
+
+
+    
     <%= javascript_include_tag "application" %>
   </body>
 </html>

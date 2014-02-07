@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
+//= require bootstrap.min 
 //= require turbolinks
 //= require tinymce/tinymce.min
-//= require tester
 //= require_tree .
-
-$(function(){ $(document).foundation(); });
+tinymce.init({
+	selector: "textarea"
+});

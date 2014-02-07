@@ -1,21 +1,18 @@
-<div class="panel">
-  <h5>Sign in</h5>
-  <div class="row">
-    <div class="span6 offset3">
-      <%= form_for(:session, url: sessions_path) do |f| %>
+<%= form_for(:session, url: sessions_path) do |f| %>
 
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-        <br />
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-        <br />
-
-        <%= f.submit "Sign in", class: "button" %>
-        <br />
-      <% end %>
-
-      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-    </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
-</div>
+
+  <br />
+
+  <div class="form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <br />
+
+  <%= f.submit "Sign in", class: "btn btn-primary" %>
+<% end %>
