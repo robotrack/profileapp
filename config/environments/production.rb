@@ -32,10 +32,8 @@ Profileapp::Application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
-  # Added to fix tinymce issue
+  # Added to fix tinymce issue on heroku
   config.assets.debug = true
-
-  end
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
