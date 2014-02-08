@@ -30,7 +30,7 @@ Profileapp::Application.configure do
   config.assets.compile = false
 
   # Generate digests for assets URLs.
-  config.assets.digest = true
+  config.assets.digest = false 
 
   # Added to fix tinymce issue on heroku
   config.assets.debug = true
