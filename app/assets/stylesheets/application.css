@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require bootstrap 
+ *= require skins/lightgray/skin.min
+ *= require skins/lightgray/content.min
  *= require_tree .
  */
