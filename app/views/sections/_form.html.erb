@@ -16,10 +16,21 @@
     <%= f.text_field :title %>
   </div>
 
+  <% if false %>
   <div class="field">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
+  <% end %>
+
+  <%= tinymce %>
+
+  <br />
+
+  <div class="field">
+    <%= f.text_area :content, :class => "tinymce", :rows => 20, :cols => 120 %>
+  </div>
+
  <br /> 
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>
