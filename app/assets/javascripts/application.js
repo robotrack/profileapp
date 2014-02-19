@@ -14,9 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap.min 
 //= require turbolinks
-//= require tinymce/tinymce.min
-//= require tinymce/themes/modern/theme.min
 //= require_tree .
-tinymce.init({
-	selector: "textarea"
-});
