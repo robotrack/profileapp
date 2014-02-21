@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce
 //= require bootstrap.min 
-//= require turbolinks
+//= require jquery.cleditor.min
 //= require_tree .
+$("#section_content").cleditor();
