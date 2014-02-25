@@ -1,11 +1,7 @@
-<div class="alert alert-success">
+<div>
   <p id="notice"><%= notice %></p>
 </div>
 
 <h3><%= @section.title %></h3>
 
 <%= @section.content.html_safe %>
-
-<br />
-
-<%= link_to 'Back', sections_path, class: "btn btn-default" %>

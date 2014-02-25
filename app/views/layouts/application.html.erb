@@ -32,7 +32,7 @@
                  <%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
                 <li>
-                  <%= link_to "Settings", sections_path %>
+                  <%= link_to "", sections_path, class: "glyphicon glyphicon-cog" %>
                 </li>
               <% else %>
                 <li>
@@ -59,8 +59,7 @@
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
           <%= yield %>   
-      </div>
-
+      </div> 
     </div> <!-- /container -->
 
 
